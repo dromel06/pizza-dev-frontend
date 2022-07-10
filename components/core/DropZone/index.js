@@ -70,7 +70,7 @@ export const DropZone = () => {
       >
         {PETS.map((pet) => (
           <DragCard
-            draggable
+            draga
             key={pet.id}
             id={pet.id}
             name={pet.name}
