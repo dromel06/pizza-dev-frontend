@@ -1,27 +1,27 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import * as React from "react";
+import Image from "next/image";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import MenuItem from "@mui/material/MenuItem";
 
-import LogoPizza from '../../../assets/PizzaLogo.svg'
-import LogoTexto from '../../../assets/TextoLogo.svg'
-import kartSvg from '../../../assets/cart.svg'
-import { Link } from '@mui/material';
+import LogoPizza from "../../../assets/PizzaLogo.svg";
+import LogoTexto from "../../../assets/TextoLogo.svg";
+import kartSvg from "../../../assets/cart.svg";
+import { Link } from "@mui/material";
 
-
-
-
-const pages = ['INICIO', 'PIZZAS', 'CUPONES', 'NOSOTROS'];
-const dir = ['/', '/pizzas', '/cupones', '/nosotros']
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  { text: "INICIO", dir: "/" },
+  { text: "PIZZAS", dir: "/pizzas" },
+  { text: "CUPONES", dir: "/cupones" },
+  { text: "NOSOTROS", dir: "/nosotros" },
+];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,17 +42,21 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
-
-
-
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FFD866" }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="l">
         <Toolbar disableGutters>
-          <img src={LogoPizza.src} />
-          <img src={LogoTexto.src} />
+          <picture>
+            <img src={LogoPizza.src} width={64} height={60} alt="Logo Pizza" />
+            <img
+              src={LogoTexto.src}
+              width={250}
+              height={60}
+              alt="Texto Pizza"
+            />
+          </picture>
 
-          <Box sx={{ flexGrow: 2, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -61,59 +65,79 @@ const NavBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page, index) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link href={pages}>
-                    <Typography textAlign="center">{page}</Typography>
+              {pages.map((page) => (
+                <MenuItem key={page.text} onClick={handleCloseNavMenu}>
+                  <Link href={pages.dir}>
+                    <Typography textAlign="center">{page.text}</Typography>
                   </Link>
-
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 1, }}>
-
-          </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1 }}></Box>
+          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center" }}
+                key={page.text}
+              >
                 <Link
-                  href={pages}
-                  key={page}
+                  href={page.dir}
+                  key={page.text}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: '#505050', display: 'block' }}
+                  underline="none"
+                  sx={{
+                    my: 2,
+                    color: "#505050",
+                    display: "block",
+                    mx: 1,
+                  }}
                 >
-                  {page}
+                  {page.text}
                 </Link>
-                <Box sx={{ backgroundColor: "#505050", borderRadius: "50px", height: "40px", width: "2px" }} />
+                <Box
+                  sx={{
+                    backgroundColor: "#505050",
+                    borderRadius: "50px",
+                    height: "40px",
+                    width: "2px",
+                  }}
+                />
               </Box>
             ))}
-            <Box sx={{ marginLeft: "5px", display: "flex" }}>
-              <img width={40} src={kartSvg.src} />
+            <Box
+              sx={{
+                marginLeft: "5px",
+                display: "flex",
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
+              <picture>
+                <img width={38} height={38} src={kartSvg.src} alt="carrito" />
+              </picture>
             </Box>
-
           </Box>
         </Toolbar>
       </Container>

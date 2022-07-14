@@ -4,18 +4,16 @@ import { useDrop } from "react-dnd";
 import { DragCard } from "../DragCard";
 import Canvas from "../CanvasPizza";
 
-const PETS = [
+const salsas = [
   {
-    id: 1,
     name: "Tomate",
-    url: "https://sicarfarms.com/wp-content/uploads/2021/01/Tomate-Roma.png",
-    url2: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2021-09/tomate-fruta-verdura-hortaliza%C2%A9iStock.jpg",
+    image:
+      "https://st4.depositphotos.com/1855397/27155/i/450/depositphotos_271553660-stock-photo-texture-tomato-paste-ketchup-background.jpg",
   },
   {
-    id: 2,
     name: "Jamón",
-    url: "https://pngimg.com/uploads/jamon/jamon_PNG14.png",
-    url2: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/2021-09/tomate-fruta-verdura-hortaliza%C2%A9iStock.jpg",
+    image:
+      "https://st4.depositphotos.com/1855397/27155/i/450/depositphotos_271553660-stock-photo-texture-tomato-paste-ketchup-background.jpg",
   },
 ];
 
@@ -30,7 +28,7 @@ export const DropZone = () => {
   }, [basket, canvas]);
 
   const [{ isOver }, dropRef] = useDrop({
-    accept: "pet",
+    accept: "ingredient",
     drop: (item) =>
       setBasket((basket) =>
         !basket.includes(item) ? [...basket, item] : basket
@@ -56,27 +54,20 @@ export const DropZone = () => {
         {!isOver && <Canvas ref={canvasRef} Ingredientes={basket} />}
         {!isOver &&
           basket.map((pet) => (
-            <DragCard key={pet.id} id={pet.id} name={pet.name} url={pet.url} />
+            <DragCard key={pet.id} name={pet.name} image={pet.image} />
           ))}
         {<Box></Box>}
       </Box>
       <Box
-        className="pet"
+        className="ingredient"
         sx={{
           width: "100px",
           margin: "12px",
           display: "flex",
         }}
       >
-        {PETS.map((pet) => (
-          <DragCard
-            draga
-            key={pet.id}
-            id={pet.id}
-            name={pet.name}
-            url={pet.url}
-            url2={pet.url2}
-          />
+        {salsas.map((pet) => (
+          <DragCard draggable key={pet.id} name={pet.name} image={pet.image} />
         ))}
       </Box>
     </Box>
