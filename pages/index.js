@@ -37,6 +37,7 @@ export default function Home() {
         </Stack>
         <Stack sx={{ gridArea: "3 / 3 / 4 / 5" }}>
           <Button
+            href="./fabrica"
             className="ButtonIndex"
             sx={{ color: "#f3738a", border: "2px", slant: ".5em" }}
           >

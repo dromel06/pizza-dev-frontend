@@ -19,7 +19,7 @@ const pages = [
   { text: "INICIO", dir: "/" },
   { text: "PIZZAS", dir: "/pizzas" },
   { text: "CUPONES", dir: "/cupones" },
-  { text: "NOSOTROS", dir: "/nosotros" },
+  { text: "FABRICA", dir: "/fabrica" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
