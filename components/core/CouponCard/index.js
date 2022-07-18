@@ -31,7 +31,7 @@ export function CouponCard({ coupon: { img, description } }) {
         }}
       >
         <Button variant="contained" color="error" size="small">
-          Agregar al Carrito
+          Usar Cupón
         </Button>
       </CardActions>
     </Card>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import PizzaFondoImage from "../assets/MaxCoupon.svg";
+import PizzaFondoImage from "../public/assets/MaxCoupon.svg";
 import { CouponCard } from "../components/core/CouponCard";
 import { PizzaPrefabcard } from "../components/core/PizzaPrefabCard";
 import axios from "axios";

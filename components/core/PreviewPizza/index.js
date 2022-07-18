@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import MaderaImage from "../../../assets/madera.png";
-import MasaPizzaImage from "../../../assets/masaPizza.png";
-import PizzaFondoImage from "../../../assets/pizzaFondo.png";
+import MaderaImage from "../../../public/assets/madera.png";
+import MasaPizzaImage from "../../../public/assets/masaPizza.png";
+import PizzaFondoImage from "../../../public/assets/pizzaFondo.png";
 
 import { Stack } from "@mui/material";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import { Box } from "@mui/system";
-import PlatoImg from "../../../assets/Plato.png";
+import PlatoImg from "../../../public/assets/Plato.png";
 import { Typography, Stack } from "@mui/material";
 import Image from "next/image";
 

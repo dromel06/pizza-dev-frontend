@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import PizzaFondoImage from "../assets/PizzaIndex.png";
+import PizzaFondoImage from "../public/assets/PizzaIndex.png";
 import { PizzaPrefabcard } from "../components/core/PizzaPrefabCard";
 import axios from "axios";
 

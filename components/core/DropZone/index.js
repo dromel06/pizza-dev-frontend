@@ -6,7 +6,7 @@ import { Grid, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import { IngredientsList } from "../IngredientsList";
 import { PreviewPizza } from "../PreviewPizza";
-import PizzaFondoImage from "../../../assets/pizzaFondo.png";
+import PizzaFondoImage from "../../../public/assets/pizzaFondo.png";
 
 export function DropZone({ ingredientes, isIngredients = false }) {
   const [pizza, setPizza] = useState([]);

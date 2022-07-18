@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Button, Stack } from "@mui/material";
 import Image from "next/image";
 
-import PrincipalText from "../assets/PrincipalText.svg";
-import MaxCoupon from "../assets/MaxCoupon.svg";
-import PizzaIndex from "../assets/PizzaIndex.png";
+import PrincipalText from "../public/assets/PrincipalText.svg";
+import MaxCoupon from "../public/assets/MaxCoupon.svg";
+import PizzaIndex from "../public/assets/PizzaIndex.png";
 
 export default function Home() {
   const spinTransition = {

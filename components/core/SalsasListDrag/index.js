@@ -3,7 +3,7 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
-import PlatoImg from "../../../assets/Plato.png";
+import PlatoImg from "../../../public/assets/Plato.png";
 
 import { Link, Grid, Container, Stack } from "@mui/material";
 import { DragCard } from "../DragCard";

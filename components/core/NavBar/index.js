@@ -9,10 +9,11 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
-import LogoPizza from "../../../assets/PizzaLogo.svg";
-import LogoTexto from "../../../assets/TextoLogo.svg";
-import kartSvg from "../../../assets/cart.svg";
+import LogoPizza from "../../../public/assets/PizzaLogo.svg";
+import LogoTexto from "../../../public/assets/TextoLogo.svg";
+import kartSvg from "../../../public/assets/cart.svg";
 import { Link } from "@mui/material";
 
 const pages = [
@@ -134,9 +135,9 @@ const NavBar = () => {
                 alignItems: "center",
               }}
             >
-              <picture>
-                <img width={38} height={38} src={kartSvg.src} alt="carrito" />
-              </picture>
+              <IconButton href="./carrito">
+                <ShoppingCartOutlinedIcon color="#505050" />
+              </IconButton>
             </Box>
           </Box>
         </Toolbar>
