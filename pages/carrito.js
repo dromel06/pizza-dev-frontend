@@ -89,6 +89,7 @@ export default function Carrito({ YappyButtonUrl }) {
                 alt="Sin Pizza"
                 width={350}
                 height={320}
+                unoptimized={true}
               ></Image>
             </Grid>
           ) : (
