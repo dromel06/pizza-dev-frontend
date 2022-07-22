@@ -13,6 +13,7 @@ const imageConfig = {
       "drive.google.com",
       "cascoyogapanama.com",
     ],
+    formats: ["image/avif", "image/webp", "image/gif"],
   },
 };
 
