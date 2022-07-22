@@ -44,7 +44,7 @@ export default function PizzasTableCart({ pizzas }) {
             <TableRow key={pizza.name}>
               <TableCell>{pizza.name}</TableCell>
               <TableCell align="right">
-                <QuantityPizza quantity={pizza.quantity} />
+                <QuantityPizza item={pizza} />
               </TableCell>
               <TableCell align="right">{pizza.amount}</TableCell>
               <TableCell align="right">
