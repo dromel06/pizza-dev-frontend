@@ -8,7 +8,7 @@ import { IngredientsList } from "../IngredientsList";
 import { PreviewPizza } from "../PreviewPizza";
 import PizzaFondoImage from "../../../public/assets/pizzaFondo.png";
 
-export function DropZone({ ingredientes, isIngredients = false }) {
+export function DropZone({ ingredients, isIngredients = false }) {
   const [pizza, setPizza] = useState([]);
   const [{ isOver }, dropRef] = useDrop({
     accept: "ingredient",
@@ -46,7 +46,7 @@ export function DropZone({ ingredientes, isIngredients = false }) {
                 </Typography>
               </Box>
             </Grid>
-            {ingredientes.map((ingredient) => (
+            {ingredients?.map((ingredient) => (
               <Grid item xs={4} md={6} mt={2} key={ingredient.name}>
                 <DragCard
                   draggable
