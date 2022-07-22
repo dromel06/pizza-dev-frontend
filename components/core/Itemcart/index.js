@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function ItemCart({ item: { name, quantity, amount } }) {
   return (
     <Grid sx={{ display: "flex", direction: "row" }}>
-      <Grid item xs={6}>
+      <Grid item xs={6} className="MonoText">
         <Typography>{name}</Typography>
       </Grid>
       <Grid item xs={3}>

@@ -136,7 +136,7 @@ const NavBar = () => {
               }}
             >
               <IconButton href="./carrito">
-                <ShoppingCartOutlinedIcon color="#505050" />
+                <ShoppingCartOutlinedIcon sx={{ color: "#505050" }} />
               </IconButton>
             </Box>
           </Box>

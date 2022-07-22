@@ -31,7 +31,7 @@ export default function Pizzas({ couponListUrl }) {
       >
         {couponsList?.map((coupon) => {
           return (
-            <Grid item key={coupon?.co_id} xs={3} mt={2} md={4}>
+            <Grid item key={coupon?.co_id} xs={12} mt={2} md={4}>
               <CouponCard coupon={coupon} />
             </Grid>
           );

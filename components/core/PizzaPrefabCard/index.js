@@ -20,36 +20,40 @@ export function PizzaPrefabcard({
     };
 
     let carrito = JSON.parse(localStorage.getItem("carritoPizzaDev"));
-    let agregado = false;
-    console.log({ carrito });
-    const newCarrito = [];
-    carrito.description.forEach((p) => {
-      let quantity = p.quantity;
-      if (p.id) {
-        if (p.id === pid) {
-          quantity += 1;
-          agregado = true;
+    if (carrito) {
+      let agregado = false;
+      console.log({ carrito });
+      const newCarrito = [];
+      carrito.description.forEach((p) => {
+        let quantity = p.quantity;
+        if (p.id) {
+          if (p.id === pid) {
+            quantity += 1;
+            agregado = true;
+          }
         }
+        p.quantity = quantity;
+        newCarrito.push(p);
+      });
+      if (!agregado) {
+        newCarrito.push(pizzaforAdd);
       }
-      p.quantity = quantity;
-      newCarrito.push(p);
-    });
-    if (!agregado) {
-      newCarrito.push(pizzaforAdd);
+      carrito.description = newCarrito;
+    } else {
+      carrito = {
+        description: [pizzaforAdd],
+      };
     }
-    carrito.description = newCarrito;
     localStorage.setItem("carritoPizzaDev", JSON.stringify(carrito));
-    console.log({ carrito });
-    console.log(newCarrito);
   };
   return (
-    <Card sx={{ height: 450, maxWidth: 345, backgroundColor: "#FFD866" }}>
+    <Card sx={{ height: 480, maxWidth: 345, backgroundColor: "#FFD866" }}>
       <CardMedia component="img" height="200" image={img} alt="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Grid container>
+        <Grid container sx={{ height: 150 }}>
           <Typography variant="subtitle1" component="div">
             {description}
           </Typography>

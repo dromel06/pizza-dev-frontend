@@ -5,7 +5,12 @@ const nextConfig = {
 
 const imageConfig = {
   images: {
-    domains: ["st4.depositphotos.com", "pbs.twimg.com", "cache.dominos.com"],
+    domains: [
+      "st4.depositphotos.com",
+      "pbs.twimg.com",
+      "cache.dominos.com",
+      "res.cloudinary.com",
+    ],
   },
 };
 
