@@ -15,13 +15,12 @@ function ccyFormat(num) {
   return `${num.toFixed(2)}`;
 }
 
-export default function PizzasTableCart({ pizzas }) {
+export default function PizzasTableCart({ pizzas, onSuccess }) {
   const subtotal = 0;
-  pizzas?.map((pizza) => (subtotal += pizza.quantity * pizza.amount));
+  pizzas?.map((pizza) => (subtotal += pizza?.quantity * pizza?.amount));
   const taxes = subtotal * TAX_RATE;
   const total = subtotal + taxes;
 
-  console.log(pizzas);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
@@ -41,14 +40,14 @@ export default function PizzasTableCart({ pizzas }) {
         </TableHead>
         <TableBody>
           {pizzas?.map((pizza) => (
-            <TableRow key={pizza.name}>
-              <TableCell>{pizza.name}</TableCell>
+            <TableRow key={pizza?.name}>
+              <TableCell>{pizza?.name}</TableCell>
               <TableCell align="right">
-                <QuantityPizza item={pizza} />
+                <QuantityPizza item={pizza} onSuccess={onSuccess} />
               </TableCell>
-              <TableCell align="right">{pizza.amount}</TableCell>
+              <TableCell align="right">{pizza?.amount}</TableCell>
               <TableCell align="right">
-                {ccyFormat(pizza.amount * pizza.quantity)}
+                {ccyFormat(pizza?.amount * pizza?.quantity)}
               </TableCell>
             </TableRow>
           ))}

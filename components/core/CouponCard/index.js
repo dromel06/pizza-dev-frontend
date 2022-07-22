@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 
 export function CouponCard({ coupon: { img, description } }) {
-  console.log(name);
   return (
     <Card sx={{ height: 380, maxWidth: 345, backgroundColor: "#FFD866" }}>
       <CardMedia component="img" height="200" image={img} alt={description} />

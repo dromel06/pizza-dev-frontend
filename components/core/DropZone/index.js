@@ -19,9 +19,7 @@ export function DropZone({ ingredients, isIngredients = false }) {
     }),
   });
 
-  useEffect(() => {
-    console.log(pizza);
-  }, [pizza]);
+  useEffect(() => {}, [pizza]);
 
   return (
     <Grid container gap="2rem">

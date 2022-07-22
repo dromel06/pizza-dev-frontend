@@ -26,9 +26,8 @@ export function PizzaPrefabcard({
     let carrito = JSON.parse(localStorage.getItem("carritoPizzaDev"));
     if (carrito) {
       let agregado = false;
-      console.log({ carrito });
       const newCarrito = [];
-      carrito.description.forEach((p) => {
+      carrito?.description?.forEach((p) => {
         let quantity = p.quantity;
         if (p.id) {
           if (p.id === pid) {

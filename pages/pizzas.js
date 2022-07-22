@@ -15,7 +15,6 @@ export default function Pizzas({ pizzasListUrl }) {
       setPizzasList(data.pizzas);
     })();
   }, [pizzasListUrl]);
-  console.log(pizzasList);
 
   return (
     <Container>

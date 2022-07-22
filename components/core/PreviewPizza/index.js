@@ -10,9 +10,7 @@ import { Container } from "@mui/system";
 import { Box } from "@mui/material";
 
 export function PreviewPizza({ pizza }) {
-  useEffect(() => {
-    console.log(pizza);
-  }, [pizza]);
+  useEffect(() => {}, [pizza]);
 
   return (
     <Stack>

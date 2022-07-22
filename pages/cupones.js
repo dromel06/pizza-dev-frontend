@@ -16,7 +16,6 @@ export default function Pizzas({ couponListUrl }) {
       setcouponsList(data.coupons);
     })();
   }, [couponListUrl]);
-  console.log(couponsList);
 
   return (
     <Container>
