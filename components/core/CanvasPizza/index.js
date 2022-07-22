@@ -13,15 +13,12 @@ export default function CanvasPizza({ Ingredientes }) {
     // context.fillStyle = "#f2d312";
     context.fillRect(0, 0, context.canvas.width, context.canvas.height);
     context.drawImage(pizzaImg, 0, 0, 100, 100);
-    console.log("Ingredientes");
-    console.log({ Ingredientes });
+
     if (Ingredientes) {
       Ingredientes.forEach((ingrediente) => {
         var ingredienteImg = new Image();
         ingredienteImg.src = ingrediente.url;
         context.drawImage(ingredienteImg, 0, 0, 300, 200);
-
-        console.log({ ingrediente });
       });
     }
   }, [Ingredientes]);

@@ -1,41 +1,54 @@
 import { fontSize } from "@material-ui/system";
 import { Button, Box, TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export function QuantityPizza({ item }) {
+export function QuantityPizza({ item, onSuccess }) {
   const [quantity, setQuantity] = useState(0);
-  let carrito = JSON.parse(localStorage.getItem("carritoPizzaDev"));
+  const [carrito, setCarrito] = useState({});
 
   useEffect(() => {
     setQuantity(item?.quantity);
-  }, [item?.quantity]);
+    setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
+  }, [item, setQuantity]);
 
-  useEffect(() => {}, [quantity]);
-  // if (carrito) {
-  //   let agregado = false;
-  //   console.log({ carrito });
-  //   const newCarrito = [];
-  //   carrito.description.forEach((p) => {
-  //     let quantity = p.quantity;
-  //     if (p.id) {
-  //       if (p.id === pid) {
-  //         quantity += 1;
-  //         agregado = true;
-  //       }
-  //     }
-  //     p.quantity = quantity;
-  //     newCarrito.push(p);
-  //   });
-  //   if (!agregado) {
-  //     newCarrito.push(pizzaforAdd);
-  //   }
-  //   carrito.description = newCarrito;
-  // } else {
-  //   carrito = {
-  //     description: [pizzaforAdd],
-  //   };
-  // }
+  const callCart = useCallback(() => {
+    setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
+    const description = [];
+    description = carrito?.description?.map((p) => {
+      if (p?.quantity > 0) {
+        return p;
+      }
+    });
+    let newCarrito = carrito;
+    description = description.filter((p) => p != null);
+    newCarrito.description = description;
+
+    localStorage.setItem("carritoPizzaDev", JSON.stringify(newCarrito));
+  }, [carrito]);
+
+  const onClickChangeQuantity = (c) => {
+    const newCarrito = [];
+    carrito?.description?.forEach((p) => {
+      let quanti = p.quantity;
+      if (p.name === item?.name) {
+        quanti += c;
+        setQuantity(quanti);
+      }
+      p.quantity = quanti;
+
+      if (p.quantity >= 1) {
+        newCarrito.push(p);
+
+        callCart();
+      }
+    });
+    setCarrito({ ...carrito, description: newCarrito });
+
+    localStorage.setItem("carritoPizzaDev", JSON.stringify(carrito));
+    callCart();
+    onSuccess();
+  };
 
   return (
     <Box>
@@ -43,6 +56,9 @@ export function QuantityPizza({ item }) {
         sx={{ height: "26px", fontSize: 24 }}
         variant="contained"
         color="error"
+        onClick={() => {
+          onClickChangeQuantity(-1);
+        }}
       >
         {quantity > 1 ? "-" : <DeleteIcon />}
       </Button>
@@ -50,6 +66,7 @@ export function QuantityPizza({ item }) {
         id="outlined-basic"
         variant="outlined"
         value={quantity}
+        disabled
         sx={{
           width: 70,
           padding: 0,
@@ -67,6 +84,9 @@ export function QuantityPizza({ item }) {
         sx={{ height: "26px", fontSize: 24 }}
         variant="contained"
         color="success"
+        onClick={() => {
+          onClickChangeQuantity(1);
+        }}
       >
         +
       </Button>

@@ -38,7 +38,6 @@ export default function Carrito({ YappyButtonUrl }) {
   };
 
   const onClickShop = () => {
-    console.log(YappyButtonUrl);
     (async () => {
       const {
         data: { url },

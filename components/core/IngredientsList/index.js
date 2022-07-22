@@ -8,7 +8,6 @@ import { Paper, Typography } from "@mui/material";
 import { Link, Grid, Container, Stack } from "@mui/material";
 
 export function IngredientsList({ ingredients }) {
-  console.log(ingredients);
   return (
     <Container
       sx={{

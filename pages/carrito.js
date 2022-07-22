@@ -6,7 +6,7 @@ import {
   Container,
   Button,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import PizzasTableCart from "../components/core/PizzasTableCart";
 import Image from "next/image";
 import FormInfoCustomer from "../components/core/FormInfoCustomer";
@@ -50,7 +50,6 @@ export default function Carrito({ YappyButtonUrl }) {
   };
 
   const onClickShop = () => {
-    console.log(YappyButtonUrl);
     (async () => {
       const {
         data: { url },
@@ -68,6 +67,19 @@ export default function Carrito({ YappyButtonUrl }) {
     }
   }, [in_browser, urlYappy]);
 
+  const onSuccess = useCallback(() => {
+    setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
+    const description = [];
+    description = carrito?.description?.map((p) => {
+      if (p.quantity > 0) {
+        return p;
+      }
+      let newCarrito = carrito;
+      newCarrito.description = description;
+      localStorage.setItem("carritoPizzaDev", JSON.stringify(newCarrito));
+    });
+  }, [carrito]);
+
   return (
     <Container>
       <Typography variant="h2" align="center" mt={3}>
@@ -75,7 +87,8 @@ export default function Carrito({ YappyButtonUrl }) {
       </Typography>
       <Stack>
         <Grid container mt={5} spacing={3}>
-          {carrito?.description?.length <= 0 ? (
+          {carrito?.description !== undefined &&
+          carrito?.description?.length <= 0 ? (
             <Grid
               item
               xs={12}
@@ -96,7 +109,10 @@ export default function Carrito({ YappyButtonUrl }) {
             <Grid item xs={12} sx={{ direction: "column" }} md={8}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <PizzasTableCart pizzas={carrito?.description} />
+                  <PizzasTableCart
+                    pizzas={carrito?.description}
+                    onSuccess={onSuccess}
+                  />
                 </Grid>
                 <Grid
                   item
