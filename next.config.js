@@ -10,6 +10,8 @@ const imageConfig = {
       "pbs.twimg.com",
       "cache.dominos.com",
       "res.cloudinary.com",
+      "drive.google.com",
+      "cascoyogapanama.com",
     ],
   },
 };

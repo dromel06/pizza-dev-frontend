@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import { QuantityPizza } from "../QuantityPizza";
 
 const TAX_RATE = 0.07;
 
@@ -42,7 +43,9 @@ export default function PizzasTableCart({ pizzas }) {
           {pizzas?.map((pizza) => (
             <TableRow key={pizza.name}>
               <TableCell>{pizza.name}</TableCell>
-              <TableCell align="right">{pizza.quantity}</TableCell>
+              <TableCell align="right">
+                <QuantityPizza quantity={pizza.quantity} />
+              </TableCell>
               <TableCell align="right">{pizza.amount}</TableCell>
               <TableCell align="right">
                 {ccyFormat(pizza.amount * pizza.quantity)}

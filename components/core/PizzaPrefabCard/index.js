@@ -6,10 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import Notification from "../Notification";
 
 export function PizzaPrefabcard({
   pizza: { pid, name, price, img, description },
 }) {
+  const [notificationOpen, setNotificationOpen] = React.useState(false);
+  const [notificationProps, setNotificationProps] = React.useState({});
   const onClickAdd = () => {
     var pizzaforAdd = {
       id: pid,
@@ -17,6 +20,7 @@ export function PizzaPrefabcard({
       quantity: 1,
       amount: price,
       built: false,
+      coupon: false,
     };
 
     let carrito = JSON.parse(localStorage.getItem("carritoPizzaDev"));
@@ -44,6 +48,12 @@ export function PizzaPrefabcard({
         description: [pizzaforAdd],
       };
     }
+    setNotificationProps({
+      message: "Pizza Agregada",
+      type: "success",
+      notificationDuration: 1000,
+    });
+    setNotificationOpen(true);
     localStorage.setItem("carritoPizzaDev", JSON.stringify(carrito));
   };
   return (
@@ -69,6 +79,12 @@ export function PizzaPrefabcard({
           Agregar al Carrito
         </Button>
       </CardActions>
+      {notificationOpen ? (
+        <Notification
+          {...notificationProps}
+          onClose={() => setNotificationOpen(false)}
+        />
+      ) : null}
     </Card>
   );
 }
