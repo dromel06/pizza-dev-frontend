@@ -18,12 +18,7 @@ const onClickClearCart = () => {
 
 export function YappyButton({ url }) {
   return (
-    <Button
-      href={url}
-      target="_blank"
-      variant="outlined"
-      onClick={onClickClearCart}
-    >
+    <Button href={url} target="_blank" variant="outlined">
       Pagar Con{"  "}
       <Stack ml={1}>
         <Image
