@@ -57,7 +57,13 @@ export function PizzaPrefabcard({
   };
   return (
     <Card sx={{ height: 480, maxWidth: 345, backgroundColor: "#FFD866" }}>
-      <CardMedia component="img" height="200" image={img} alt="green iguana" />
+      <CardMedia
+        sx={{ backgroundColor: "white" }}
+        component="img"
+        height="200"
+        image={img}
+        alt="green iguana"
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}

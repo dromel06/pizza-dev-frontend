@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import PizzaFondoImage from "../public/assets/MaxCoupon.svg";
 import { CouponCard } from "../components/core/CouponCard";
-import { PizzaPrefabcard } from "../components/core/PizzaPrefabCard";
+import Image from "next/image";
 import axios from "axios";
 
 export default function Pizzas({ couponListUrl }) {
@@ -28,13 +27,25 @@ export default function Pizzas({ couponListUrl }) {
         mt={1}
         sx={{ display: "flex", alignContent: "center" }}
       >
-        {couponsList?.map((coupon) => {
-          return (
-            <Grid item key={coupon?.co_id} xs={12} mt={2} md={4}>
-              <CouponCard coupon={coupon} />
-            </Grid>
-          );
-        })}
+        {couponsList.length > 0 ? (
+          couponsList?.map((coupon) => {
+            return (
+              <Grid item key={coupon?.co_id} xs={12} mt={2} md={4}>
+                <CouponCard coupon={coupon} />
+              </Grid>
+            );
+          })
+        ) : (
+          <Grid item xs={12} align="center">
+            <Image
+              src="https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658453489/ru7tgliollwt0chhopem.gif"
+              width={400}
+              height={400}
+              alt="Pizza Carga"
+              unoptimized={true}
+            />
+          </Grid>
+        )}
       </Grid>
     </Container>
   );

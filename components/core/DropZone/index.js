@@ -32,16 +32,16 @@ export function DropZone({ ingredients, onClickSave }) {
         name: "tabla",
         img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658099909/el3e5eyri52l9zooyena.png",
       },
-      pizza
+      pizza.length > 0
         ? {
             id: 1,
             name: "tabla",
-            img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658099909/el3e5eyri52l9zooyena.png",
+            img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658557470/xoefwjcrlmh9mu9qt5ot.png",
           }
         : {
             id: 2,
             name: "pizza Masa",
-            img: PizzaFondoImage.src,
+            img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658557327/dggsdt5u6vnzzi4up0mj.png",
           },
       ...pizza,
     ]);
