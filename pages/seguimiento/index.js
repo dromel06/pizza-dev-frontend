@@ -57,7 +57,7 @@ export default function Carrito({ createOrderUrl }) {
   }, [order, router]);
 
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <Typography> Compra Exitosa</Typography>
     </Container>
   );

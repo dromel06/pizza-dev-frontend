@@ -87,7 +87,7 @@ export default function Carrito({ YappyButtonUrl }) {
   }, [carrito]);
 
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <Typography variant="h2" align="center" mt={3}>
         Carrito de Pizzas
       </Typography>
