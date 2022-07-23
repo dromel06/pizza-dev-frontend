@@ -8,13 +8,13 @@ import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import Notification from "../Notification";
 
-export function CouponCard({ coupon: { img, description, cu_id, price } }) {
+export function CouponCard({ coupon: { img, description, co_id, price } }) {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [notificationProps, setNotificationProps] = useState({});
   const [usedCoupon, setUsedCoupon] = useState(false);
   const onClickAdd = () => {
     var pizzaforAdd = {
-      id: cu_id,
+      id: co_id,
       name: description,
       quantity: 1,
       amount: price,
@@ -29,14 +29,6 @@ export function CouponCard({ coupon: { img, description, cu_id, price } }) {
         let agregado = false;
         const newCarrito = [];
         carrito?.description?.forEach((p) => {
-          let quantity = p.quantity;
-          if (p.id) {
-            if (p.id === cu_id) {
-              quantity += 1;
-              agregado = true;
-            }
-          }
-          p.quantity = quantity;
           newCarrito.push(p);
         });
         if (!agregado) {
