@@ -19,7 +19,7 @@ export default function Pizzas({ couponListUrl }) {
 
   return (
     <Container>
-      <Typography align="center" variant="h2">
+      <Typography align="center" variant="h2" mt={2}>
         Lista de Cupones
       </Typography>
       <Grid

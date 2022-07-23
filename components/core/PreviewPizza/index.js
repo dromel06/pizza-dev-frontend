@@ -11,7 +11,7 @@ import { ClassNames } from "@emotion/react";
 
 export function PreviewPizza({ pizzaIngredients }) {
   // useEffect(() => {
-  //   console.log(pizzaIngredients);
+  //
   // }, [pizzaIngredients]);
 
   return (

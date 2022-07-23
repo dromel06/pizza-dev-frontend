@@ -17,7 +17,8 @@ export default function Carrito({ YappyButtonUrl }) {
   const [carrito, setCarrito] = useState({});
   const [yappyButton, setYappyButton] = useState("");
   const [urlYappy, setUrlYappy] = useState(undefined);
-  const pedido = {
+
+  const [pedido, setPedido] = useState({
     customer_data: {
       name: "",
       phone: "",
@@ -33,7 +34,7 @@ export default function Carrito({ YappyButtonUrl }) {
     },
     description: [],
     total_Amount: 33.98,
-  };
+  });
   const OnClickResetCart = () => {
     if (in_browser) {
       localStorage.setItem("carritoPizzaDev", JSON.stringify(pedido));
@@ -70,7 +71,7 @@ export default function Carrito({ YappyButtonUrl }) {
     if (urlYappy !== undefined) {
       setYappyButton(<YappyButton url={urlYappy} />);
     }
-  }, [in_browser, urlYappy]);
+  }, [in_browser, urlYappy, pedido]);
 
   const onSuccess = useCallback(() => {
     setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
