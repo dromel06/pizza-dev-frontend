@@ -148,7 +148,7 @@ const NavBar = () => {
                 alignItems: "center",
               }}
             >
-              <IconButton href="./carrito">
+              <IconButton href="/carrito">
                 <ShoppingCartOutlinedIcon sx={{ color: "#505050" }} />
               </IconButton>
             </Box>

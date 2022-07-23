@@ -1,15 +1,29 @@
-import { Container, Button } from "@mui/material";
+import { Container, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 export default function Carrito({ createOrderUrl }) {
   const in_browser = typeof window !== "undefined";
   const [carrito, setCarrito] = useState({});
-
-  const OnClickResetCart = () => {
-    if (in_browser) {
-      localStorage.setItem("carritoPizzaDev", JSON.stringify(pedido));
-    }
-  };
+  const [order, setOrder] = useState({});
+  const router = useRouter();
+  const [pedido, setPedido] = useState({
+    customer_data: {
+      name: "",
+      phone: "",
+      email: "",
+    },
+    delivery: {
+      method: "delivery",
+      location: {
+        ln: 9.032197938400161,
+        lat: -79.5019754329132,
+      },
+      payment_method: "Yappy",
+    },
+    description: [],
+    total_Amount: 33.98,
+  });
 
   const serializerData = (carrito) => {
     return {
@@ -28,14 +42,25 @@ export default function Carrito({ createOrderUrl }) {
 
   useEffect(() => {
     (async () => {
-      const {
-        data: { url },
-      } = await axios.post(createOrderUrl, serializerData(carrito));
-      setUrlYappy(url);
+      const { data } = await axios.post(
+        createOrderUrl,
+        serializerData(carrito)
+      );
+      setOrder(data.order);
     })();
   }, [createOrderUrl, carrito]);
+  console.log(order.orderNumber);
+  useEffect(() => {
+    if (order.orderNumber !== undefined) {
+      router.push(`seguimiento/${order.orderNumber}`);
+    }
+  }, [order, router]);
 
-  return <Container>Compra Exitosa</Container>;
+  return (
+    <Container>
+      <Typography> Compra Exitosa</Typography>
+    </Container>
+  );
 }
 
 export async function getServerSideProps(context) {
