@@ -5,6 +5,7 @@ import { Container } from "@mui/system";
 import PizzaFondoImage from "../public/assets/PizzaIndex.png";
 import { PizzaPrefabcard } from "../components/core/PizzaPrefabCard";
 import axios from "axios";
+import NavBar from "../components/core/NavBar";
 
 export default function Pizzas({ pizzasListUrl }) {
   const [pizzasList, setPizzasList] = useState([]);

@@ -8,16 +8,18 @@ export default function FormInfoCustomer() {
   const [notificationProps, setNotificationProps] = React.useState({});
 
   const [userCustomer, setUserCustomer] = useState({
-    name: "Hola",
-    phone: 123,
-    email: 123,
+    name: "",
+    phone: "",
+    email: "",
   });
   const in_browser = typeof window !== "undefined";
 
   useEffect(() => {
     if (in_browser) {
       setUserCustomer(
-        JSON.parse(localStorage.getItem("carritoPizzaDev")).customer_data
+        localStorage.carritoPizzaDev
+          ? JSON.parse(localStorage.getItem("carritoPizzaDev")).customer_data
+          : {}
       );
     }
   }, [in_browser]);

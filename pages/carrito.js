@@ -19,9 +19,9 @@ export default function Carrito({ YappyButtonUrl }) {
   const [urlYappy, setUrlYappy] = useState(undefined);
   const pedido = {
     customer_data: {
-      name: "Diomedes Díaz",
-      phone: "67893405",
-      email: "admin1@admin.com",
+      name: "",
+      phone: "",
+      email: "",
     },
     delivery: {
       method: "delivery",
@@ -37,6 +37,7 @@ export default function Carrito({ YappyButtonUrl }) {
   const OnClickResetCart = () => {
     if (in_browser) {
       localStorage.setItem("carritoPizzaDev", JSON.stringify(pedido));
+      onSuccess();
     }
   };
 
@@ -60,7 +61,11 @@ export default function Carrito({ YappyButtonUrl }) {
 
   useEffect(() => {
     if (in_browser) {
-      setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
+      if (localStorage.getItem("carritoPizzaDev")) {
+        setCarrito(JSON.parse(localStorage.getItem("carritoPizzaDev")));
+      } else {
+        localStorage.setItem("carritoPizzaDev", JSON.stringify(pedido));
+      }
     }
     if (urlYappy !== undefined) {
       setYappyButton(<YappyButton url={urlYappy} />);
@@ -119,8 +124,16 @@ export default function Carrito({ YappyButtonUrl }) {
                   xs={12}
                   display="flex"
                   direction="row"
-                  justifyContent="right"
+                  justifyContent="space-between"
                 >
+                  <Button
+                    onClick={OnClickResetCart}
+                    variant="contained"
+                    color="error"
+                  >
+                    Borrar Todo
+                  </Button>
+
                   {!yappyButton && (
                     <Button onClick={onClickShop} variant="contained">
                       Comprar
@@ -136,7 +149,6 @@ export default function Carrito({ YappyButtonUrl }) {
               <FormInfoCustomer />
             </Paper>
           </Grid>
-          <Button onClick={OnClickResetCart}>Reiniciar Carrito</Button>
         </Grid>
       </Stack>
     </Container>
