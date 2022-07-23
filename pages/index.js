@@ -41,7 +41,12 @@ export default function Home() {
           <Button
             href="./fabrica"
             className="ButtonIndex"
-            sx={{ color: "#f3738a", border: "2px", slant: ".5em" }}
+            sx={{
+              color: "#f3738a",
+              border: "2px",
+              slant: ".5em",
+              height: "61px",
+            }}
           >
             CONSTRUYE TU PIZZA
           </Button>
