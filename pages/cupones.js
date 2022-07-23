@@ -27,7 +27,7 @@ export default function Pizzas({ couponListUrl }) {
         mt={1}
         sx={{ display: "flex", alignContent: "center" }}
       >
-        {!couponsList.length > 0 ? (
+        {couponsList.length > 0 ? (
           couponsList?.map((coupon) => {
             return (
               <Grid item key={coupon?.co_id} xs={12} mt={2} md={4}>
