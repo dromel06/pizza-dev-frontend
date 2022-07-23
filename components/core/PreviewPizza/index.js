@@ -6,41 +6,54 @@ import PizzaFondoImage from "../../../public/assets/pizzaFondo.png";
 
 import { Stack } from "@mui/material";
 
-import { Container } from "@mui/system";
 import { Box } from "@mui/material";
+import { ClassNames } from "@emotion/react";
 
-export function PreviewPizza({ pizza }) {
-  useEffect(() => {}, [pizza]);
+export function PreviewPizza({ pizzaIngredients }) {
+  // useEffect(() => {
+  //   console.log(pizzaIngredients);
+  // }, [pizzaIngredients]);
 
   return (
     <Stack>
-      <Box sx={{ position: "absolute", zIndex: -100 }}>
-        <Image
-          src={MaderaImage}
-          alt="Tabla de Madera"
-          width={"550"}
-          height={"480"}
-        />
-      </Box>
-      {pizza ? (
-        <Box sx={{ position: "absolute", zIndex: -90 }}>
-          <Image
-            src={MasaPizzaImage}
-            alt="Masa Pizza"
-            width={"480%"}
-            height={"480%"}
-          />
+      {pizzaIngredients.map((ingredient, index) => (
+        <Box key={ingredient.id}>
+          {index < 2 ? (
+            <Box
+              sx={{
+                position: "absolute",
+                zIndex: { index },
+                width: 500,
+                height: 500,
+              }}
+            >
+              <Image src={ingredient.img} alt={ingredient.name} layout="fill" />
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                position: "absolute",
+                zIndex: { index },
+                width: 280,
+                height: 280,
+                marginTop: 12,
+                marginLeft: 10,
+                "& .ingre": {
+                  borderRadius: 100,
+                },
+              }}
+            >
+              <Image
+                src={ingredient.image}
+                alt={ingredient.name}
+                className="ingre"
+                width={300}
+                height={300}
+              />
+            </Box>
+          )}
         </Box>
-      ) : (
-        <Box sx={{ position: "absolute", zIndex: -80, mt: 2, ml: 2 }}>
-          <Image
-            src={PizzaFondoImage}
-            alt="Masa Pizza"
-            width={"450%"}
-            height={"450%"}
-          />
-        </Box>
-      )}
+      ))}
     </Stack>
   );
 }

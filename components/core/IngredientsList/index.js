@@ -3,11 +3,16 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 import ClearIcon from "@mui/icons-material/Clear";
 
-import { Paper, Typography } from "@mui/material";
+import {
+  Button,
+  Paper,
+  Typography,
+  IconButton,
+  Container,
+  Stack,
+} from "@mui/material";
 
-import { Link, Grid, Container, Stack } from "@mui/material";
-
-export function IngredientsList({ ingredients }) {
+export function IngredientsList({ ingredients, onClickDelete }) {
   return (
     <Container
       sx={{
@@ -21,12 +26,19 @@ export function IngredientsList({ ingredients }) {
             sx={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
               borderBottom: "2px solid #000",
             }}
-            key={ingredient.id}
+            key={ingredient.i_id}
           >
             <Typography> {ingredient.name} </Typography>
-            <ClearIcon color="error" />
+            <Button
+              onClick={() => {
+                onClickDelete(ingredient.name);
+              }}
+            >
+              <ClearIcon color="error" />
+            </Button>
           </Box>
         );
       })}
