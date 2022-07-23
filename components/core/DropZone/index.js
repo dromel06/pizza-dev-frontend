@@ -142,7 +142,7 @@ export function DropZone({ ingredients, onClickSave }) {
             >
               {pizza.length > 1 && (
                 <Button variant="contained" onClick={() => onClickSave(pizza)}>
-                  Salvar
+                  Agregar al carrito
                 </Button>
               )}
             </Grid>

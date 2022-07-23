@@ -26,6 +26,7 @@ export default function Home() {
           gridRowGap: "0px",
           marginLeft: "0px",
           marginTop: "30px",
+          overflowX: "hidden",
         }}
       >
         <Stack sx={{ gridArea: "1 / 1 / 5 / 4" }}>

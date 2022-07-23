@@ -78,12 +78,12 @@ export function PizzaPrefabcard({
           Agregar al Carrito
         </Button>
       </CardActions>
-      {notificationOpen ? (
+      {notificationOpen && (
         <Notification
           {...notificationProps}
           onClose={() => setNotificationOpen(false)}
         />
-      ) : null}
+      )}
     </Card>
   );
 }

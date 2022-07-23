@@ -5,8 +5,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { DropZone } from "../components/core/DropZone";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useRouter } from "next/router";
 export default function Fabrica({ ingredientsListUrl }) {
+  const router = useRouter();
   const [ingredientsList, setIngredienteList] = useState([
     {
       id: 1,
@@ -49,6 +50,7 @@ export default function Fabrica({ ingredientsListUrl }) {
       };
     }
     localStorage.setItem("carritoPizzaDev", JSON.stringify(newCarrito));
+    router.push("./carrito");
   };
 
   return (

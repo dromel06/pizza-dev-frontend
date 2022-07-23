@@ -80,16 +80,18 @@ export function QuantityPizza({ item, onSuccess }) {
           },
         }}
       />
-      <Button
-        sx={{ height: "26px", fontSize: 24 }}
-        variant="contained"
-        color="success"
-        onClick={() => {
-          onClickChangeQuantity(1);
-        }}
-      >
-        +
-      </Button>
+      {!item.coupon && (
+        <Button
+          sx={{ height: "26px", fontSize: 24 }}
+          variant="contained"
+          color="success"
+          onClick={() => {
+            onClickChangeQuantity(1);
+          }}
+        >
+          +
+        </Button>
+      )}
     </Box>
   );
 }
