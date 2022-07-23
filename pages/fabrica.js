@@ -57,7 +57,7 @@ export default function Fabrica({ ingredientsListUrl }) {
         <Grid container mt={3} gap="2rem">
           <Grid item xs={12}>
             <Typography variant="h3" align="center">
-              Fabirca de Pizzas
+              Fábrica de Pizzas
             </Typography>
           </Grid>
           <Grid item xs={12}>

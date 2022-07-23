@@ -20,7 +20,7 @@ const pages = [
   { text: "INICIO", dir: "/" },
   { text: "PIZZAS", dir: "/pizzas" },
   { text: "CUPONES", dir: "/cupones" },
-  { text: "FABRICA", dir: "/fabrica" },
+  { text: "FÁBRICA", dir: "/fabrica" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -44,9 +44,22 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#FFD866" }}>
-      <Container maxWidth="l">
-        <Toolbar disableGutters>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "#FFD866",
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar
+          disableGutters
+          sx={{
+            height: "75px",
+
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <picture>
             <img src={LogoPizza.src} width={64} height={60} alt="Logo Pizza" />
             <img

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -20,6 +20,13 @@ export default function PizzasTableCart({ pizzas, onSuccess }) {
   pizzas?.map((pizza) => (subtotal += pizza?.quantity * pizza?.amount));
   const taxes = subtotal * TAX_RATE;
   const total = subtotal + taxes;
+
+  useEffect(() => {
+    const carrito = JSON.parse(localStorage.getItem("carritoPizzaDev"));
+    const newCarrito = { ...carrito };
+    newCarrito.total_amount = subtotal;
+    localStorage.setItem("carritoPizzaDev", JSON.stringify(newCarrito));
+  }, [subtotal]);
 
   return (
     <TableContainer component={Paper}>

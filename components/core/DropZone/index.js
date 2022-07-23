@@ -26,8 +26,6 @@ export function DropZone({ ingredients, onClickSave }) {
   };
 
   useEffect(() => {
-    console.log(pizza);
-
     setListPizza([
       {
         id: 0,
@@ -50,7 +48,6 @@ export function DropZone({ ingredients, onClickSave }) {
   }, [pizza]);
 
   const onClickDelete = (e) => {
-    console.log(e);
     const pizzaIndex = pizza.findIndex((i) => i.name === e);
     const newPizza = [...pizza];
     newPizza.splice(pizzaIndex, 1);
