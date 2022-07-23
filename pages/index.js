@@ -6,6 +6,7 @@ import Image from "next/image";
 import PrincipalText from "../public/assets/PrincipalText.svg";
 import MaxCoupon from "../public/assets/MaxCoupon.svg";
 import PizzaIndex from "../public/assets/PizzaIndex.png";
+import NavBar from "../components/core/NavBar";
 
 export default function Home() {
   const spinTransition = {
