@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import NavBar from "../components/core/NavBar";
+import Footer from "../components/core/Footer";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -28,7 +29,9 @@ class MyDocument extends Document {
           <NavBar />
 
           <Main />
+
           <NextScript />
+          <Footer />
         </body>
       </Html>
     );
