@@ -57,7 +57,7 @@ export default function Fabrica({ ingredientsListUrl }) {
   };
 
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <DndProvider backend={HTML5Backend}>
         <Grid container mt={3} gap="2rem">
           <Grid item xs={12}>

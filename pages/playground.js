@@ -11,7 +11,7 @@ import { Container } from "@mui/system";
 
 export default function playground({ text }) {
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <Stack justifyContent="center">
         <Grid container justifyContent="center" align="center" mt={3}>
           <Grid item xs={8}>

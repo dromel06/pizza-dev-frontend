@@ -17,7 +17,7 @@ export default function Pizzas({ couponListUrl }) {
   }, [couponListUrl]);
 
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <Typography align="center" variant="h2" mt={2}>
         Lista de Cupones
       </Typography>

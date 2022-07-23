@@ -18,7 +18,7 @@ export default function Pizzas({ pizzasListUrl }) {
   }, [pizzasListUrl]);
 
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       <Typography align="center" variant="h2" mt={2}>
         Lista de Pizzas
       </Typography>

@@ -75,7 +75,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
   //TODO :
   // -Reparar el set Interval
   return (
-    <Container>
+    <Container sx={{ minHeight: "70vh" }}>
       {!!order?.orderNumber ? (
         <Stack>
           <Typography variant="h3" mt={3} align="center">
