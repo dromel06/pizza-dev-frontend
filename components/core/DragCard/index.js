@@ -5,10 +5,10 @@ import PlatoImg from "../../../public/assets/Plato.png";
 import { Typography, Stack } from "@mui/material";
 import Image from "next/image";
 
-export function DragCard({ id, name, image, empty = false }) {
+export function DragCard({ id, name, image, i_id }) {
   const [{ isDragging }, dragRef] = useDrag({
     type: "ingredient",
-    item: { id, name, image },
+    item: { id, name, image, i_id },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -22,14 +22,12 @@ export function DragCard({ id, name, image, empty = false }) {
         align: "center",
       }}
     >
-      <Typography align="center">{name}</Typography>
       <Box
         sx={{
           ZIndex: -1,
           position: "absolute",
           display: "flex",
           justifyContent: "center",
-          mt: 3,
           ml: 2.8,
         }}
       >
@@ -39,8 +37,9 @@ export function DragCard({ id, name, image, empty = false }) {
         sx={{
           display: "flex",
           justifyContent: "center",
+
           mt: 2,
-          mb: 5,
+          mb: 1,
           "& > span": { borderRadius: "100%" },
         }}
       >
@@ -48,6 +47,7 @@ export function DragCard({ id, name, image, empty = false }) {
           <Image alt={name} src={image} width="70%" height="70%" />
         )}
       </Box>
+      <Typography align="center">{name}</Typography>
     </Box>
   );
 }

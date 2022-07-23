@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import { DragCard } from "../DragCard";
 import { Box } from "@mui/system";
-import { Grid, Paper, Typography } from "@mui/material";
+import { Button, Grid, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import { IngredientsList } from "../IngredientsList";
 import { PreviewPizza } from "../PreviewPizza";
 import PizzaFondoImage from "../../../public/assets/pizzaFondo.png";
 
-export function DropZone({ ingredients, isIngredients = false }) {
+export function DropZone({ ingredients, onClickSave }) {
   const [pizza, setPizza] = useState([]);
+  const [listPizza, setListPizza] = useState([]);
   const [{ isOver }, dropRef] = useDrop({
     accept: "ingredient",
     drop: (item) =>
@@ -19,7 +20,42 @@ export function DropZone({ ingredients, isIngredients = false }) {
     }),
   });
 
-  useEffect(() => {}, [pizza]);
+  const inIngredientsList = (ingredient) => {
+    let response = pizza.filter((p) => p.i_id === ingredient.i_id);
+    return response;
+  };
+
+  useEffect(() => {
+    console.log(pizza);
+
+    setListPizza([
+      {
+        id: 0,
+        name: "tabla",
+        img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658099909/el3e5eyri52l9zooyena.png",
+      },
+      pizza
+        ? {
+            id: 1,
+            name: "tabla",
+            img: "https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658099909/el3e5eyri52l9zooyena.png",
+          }
+        : {
+            id: 2,
+            name: "pizza Masa",
+            img: PizzaFondoImage.src,
+          },
+      ...pizza,
+    ]);
+  }, [pizza]);
+
+  const onClickDelete = (e) => {
+    console.log(e);
+    const pizzaIndex = pizza.findIndex((i) => i.name === e);
+    const newPizza = [...pizza];
+    newPizza.splice(pizzaIndex, 1);
+    setPizza(newPizza);
+  };
 
   return (
     <Grid container gap="2rem">
@@ -39,19 +75,27 @@ export function DropZone({ ingredients, isIngredients = false }) {
               sx={{ display: "flex", justifyContent: "center" }}
             >
               <Box sx={{ borderBottom: "3px solid #000", width: "90%" }}>
-                <Typography align="center">
-                  {isIngredients ? "Ingredientes" : "Salsas"}
-                </Typography>
+                <Typography align="center">Ingredientes</Typography>
               </Box>
             </Grid>
-            {ingredients?.map((ingredient) => (
-              <Grid item xs={4} md={6} mt={2} key={ingredient.name}>
-                <DragCard
-                  draggable
-                  id={ingredient.id}
-                  name={ingredient.name}
-                  image={ingredient.image}
-                />
+            {ingredients.map((ingredient) => (
+              <Grid item xs={4} md={6} mt={2} key={ingredient.id}>
+                {pizza.filter((i) => ingredient.i_id != i.i_id) ? (
+                  <DragCard
+                    id={ingredient.i_id}
+                    name={ingredient.name}
+                    image={ingredient.img}
+                    i_id={ingredient.i_id}
+                  />
+                ) : (
+                  <DragCard
+                    draggable
+                    id={ingredient.i_id}
+                    name={ingredient.name}
+                    image={ingredient.img}
+                    i_id={ingredient.i_id}
+                  />
+                )}
               </Grid>
             ))}
           </Grid>
@@ -59,8 +103,7 @@ export function DropZone({ ingredients, isIngredients = false }) {
       </Grid>
       <Grid item xs={12} md={5}>
         <Box ref={dropRef}>
-          Hola
-          <PreviewPizza pizza={pizza} />
+          <PreviewPizza pizzaIngredients={listPizza} />
           {isOver && <div>Drop Here!</div>}
         </Box>
       </Grid>
@@ -83,7 +126,29 @@ export function DropZone({ ingredients, isIngredients = false }) {
                 <Typography align="center">Lista de Ingredientes</Typography>
               </Box>
             </Grid>
-            <IngredientsList ingredients={pizza} />
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <IngredientsList
+                ingredients={pizza}
+                onClickDelete={onClickDelete}
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              mt={3}
+              mb={3}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              {pizza.length > 1 && (
+                <Button variant="contained" onClick={() => onClickSave(pizza)}>
+                  Salvar
+                </Button>
+              )}
+            </Grid>
           </Grid>
         </Paper>
       </Grid>
