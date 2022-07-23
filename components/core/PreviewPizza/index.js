@@ -18,13 +18,26 @@ export function PreviewPizza({ pizzaIngredients }) {
     <Stack>
       {pizzaIngredients.map((ingredient, index) => (
         <Box key={ingredient.id}>
-          {index < 2 ? (
+          {index == 0 ? (
             <Box
               sx={{
                 position: "absolute",
                 zIndex: { index },
                 width: 500,
                 height: 500,
+              }}
+            >
+              <Image src={ingredient.img} alt={ingredient.name} layout="fill" />
+            </Box>
+          ) : index < 2 && index > 0 ? (
+            <Box
+              sx={{
+                position: "absolute",
+                zIndex: { index },
+                width: 300,
+                height: 300,
+                marginTop: 11,
+                marginLeft: 9,
               }}
             >
               <Image src={ingredient.img} alt={ingredient.name} layout="fill" />

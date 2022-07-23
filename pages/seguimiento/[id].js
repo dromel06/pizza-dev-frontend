@@ -89,6 +89,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                   alt="Preparando Pizza"
                   width={888}
                   height={500}
+                  unoptimized={true}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,6 +119,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                       color="inherit"
                       variant="determinate"
                       value={0}
+                      unoptimized={true}
                       sx={{ height: 30, borderRadius: 10 }}
                     />
                   </Grid>
@@ -131,6 +133,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                 <Image
                   src="https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658455262/ub07qhzogwllius0honm.gif"
                   alt="Preparando Pizza"
+                  unoptimized={true}
                   width={888}
                   height={500}
                 />
@@ -141,6 +144,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                     <LinearProgress
                       color="success"
                       variant="determinate"
+                      unoptimized={true}
                       value={100}
                       sx={{
                         height: 30,
@@ -176,7 +180,8 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                 <Stack height={500} width={200} justifyContent="center">
                   <Image
                     src="https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658453433/pptvlkanoouwcmnvfnbf.gif"
-                    alt="Preparando Pizza"
+                    unoptimized={true}
+                    alt="en camino"
                     width={250}
                     height={200}
                   />
@@ -223,6 +228,7 @@ export default function Seguimiento({ getOrdersUrl, getOrderUrl }) {
                   <Image
                     src="https://res.cloudinary.com/xabi-api-cloud/image/upload/v1658453489/ru7tgliollwt0chhopem.gif"
                     alt="Preparando Pizza"
+                    unoptimized={true}
                     width={500}
                     height={500}
                   />
