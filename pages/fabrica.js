@@ -35,7 +35,10 @@ export default function Fabrica({ ingredientsListUrl }) {
       name: "Pizza Personalizada",
       id: new Date(),
       quantity: 1,
-      amount: 12.99,
+      amount: (pizza.length > 3
+        ? 12.99 + 1.5 * (pizza.length - 3)
+        : 19.99
+      ).toFixed(2),
       built: true,
       coupon: false,
       ingredients: [...pizza],

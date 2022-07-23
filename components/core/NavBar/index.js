@@ -60,15 +60,22 @@ const NavBar = () => {
             alignItems: "center",
           }}
         >
-          <picture>
-            <img src={LogoPizza.src} width={64} height={60} alt="Logo Pizza" />
-            <img
-              src={LogoTexto.src}
-              width={250}
-              height={60}
-              alt="Texto Pizza"
-            />
-          </picture>
+          <Link href="/">
+            <picture>
+              <img
+                src={LogoPizza.src}
+                width={64}
+                height={60}
+                alt="Logo Pizza"
+              />
+              <img
+                src={LogoTexto.src}
+                width={250}
+                height={60}
+                alt="Texto Pizza"
+              />
+            </picture>
+          </Link>
 
           <Box sx={{ flexGrow: 2, display: { xs: "flex", md: "none" } }}>
             <IconButton
