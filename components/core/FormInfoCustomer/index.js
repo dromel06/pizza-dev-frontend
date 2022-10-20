@@ -96,7 +96,7 @@ export default function FormInfoCustomer() {
         />
       </Grid>
       <Grid item xs={12} width="100%">
-        <Button onClick={onClickSave} variant="contained">
+        <Button onClick={onClickSave} variant="contained" id="save">
           Guardar
         </Button>
       </Grid>

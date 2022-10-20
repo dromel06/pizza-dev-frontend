@@ -15,6 +15,7 @@ export function DragCard({ id, name, image, i_id }) {
   });
   return (
     <Box
+      id={`ingredient-${id}`}
       ref={dragRef}
       sx={{
         display: "flex",

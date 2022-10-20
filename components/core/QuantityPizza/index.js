@@ -1,4 +1,3 @@
-import { fontSize } from "@material-ui/system";
 import { Button, Box, TextField } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -53,6 +52,7 @@ export function QuantityPizza({ item, onSuccess }) {
   return (
     <Box>
       <Button
+        id={`menos-${item.id}`}
         sx={{ height: "26px", fontSize: 24 }}
         variant="contained"
         color="error"
@@ -82,6 +82,7 @@ export function QuantityPizza({ item, onSuccess }) {
       />
       {!item.coupon && (
         <Button
+          id={`menos-${item.id}`}
           sx={{ height: "26px", fontSize: 24 }}
           variant="contained"
           color="success"

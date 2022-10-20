@@ -78,6 +78,7 @@ export function CouponCard({ coupon: { img, description, co_id, price } }) {
         }}
       >
         <Button
+          id={`addCupon-${co_id}`}
           onClick={onClickAdd}
           variant="contained"
           color="error"

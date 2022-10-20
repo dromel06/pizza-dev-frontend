@@ -77,6 +77,7 @@ export function PizzaPrefabcard({
       <CardActions>
         <Button
           variant="contained"
+          id={`addKart-${pid}`}
           color="error"
           size="small"
           onClick={onClickAdd}

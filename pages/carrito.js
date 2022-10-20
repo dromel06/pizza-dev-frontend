@@ -128,6 +128,7 @@ export default function Carrito({ YappyButtonUrl }) {
                   justifyContent="space-between"
                 >
                   <Button
+                    id="borrarTodoButton"
                     onClick={OnClickResetCart}
                     variant="contained"
                     color="error"
@@ -136,7 +137,11 @@ export default function Carrito({ YappyButtonUrl }) {
                   </Button>
 
                   {!yappyButton && (
-                    <Button onClick={onClickShop} variant="contained">
+                    <Button
+                      onClick={onClickShop}
+                      variant="contained"
+                      id="comprarButton"
+                    >
                       Comprar
                     </Button>
                   )}

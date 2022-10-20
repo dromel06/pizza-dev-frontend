@@ -1,0 +1,36 @@
+#NavBar
+- navBarINICIO
+- navBarPIZZAS
+- navBarCUPONES
+- navBarFabrica
+- navBarKart
+
+
+#Incio
+- ButtonPizza
+
+
+#Pizzas
+- addKart-${pid}
+
+
+#Cupones
+- addCupon-${co_id}
+
+
+#Fabrica
+- BorrarIngrediente-${ingredient.i_id}
+- ingredient-${id}
+- AddPizzaKart
+
+
+#Carrito
+- menos-${item.id}
+- mas-${item.id}
+- borrarTodoButton
+- comprarButton
+ *Form:
+  - name
+  - telefono
+  - email
+  - save

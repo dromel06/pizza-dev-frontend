@@ -124,6 +124,7 @@ const NavBar = () => {
                 key={page.text}
               >
                 <Link
+                  id={`navBar${page.text}`}
                   href={page.dir}
                   key={page.text}
                   onClick={handleCloseNavMenu}
@@ -155,7 +156,7 @@ const NavBar = () => {
                 alignItems: "center",
               }}
             >
-              <IconButton href="/carrito">
+              <IconButton href="/carrito" id={`navBarKart`}>
                 <ShoppingCartOutlinedIcon sx={{ color: "#505050" }} />
               </IconButton>
             </Box>
