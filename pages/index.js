@@ -39,6 +39,7 @@ export default function Home() {
         </Stack>
         <Stack sx={{ gridArea: "3 / 3 / 4 / 5" }}>
           <Button
+            id="ButtonPizza"
             href="./fabrica"
             className="ButtonIndex"
             sx={{

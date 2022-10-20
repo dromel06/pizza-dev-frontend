@@ -33,6 +33,7 @@ export function IngredientsList({ ingredients, onClickDelete }) {
           >
             <Typography> {ingredient.name} </Typography>
             <Button
+              id={`BorrarIngrediente-${ingredient.i_id}`}
               onClick={() => {
                 onClickDelete(ingredient.name);
               }}
