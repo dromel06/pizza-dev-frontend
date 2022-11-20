@@ -32,7 +32,7 @@ export default function Fabrica({ ingredientsListUrl }) {
 
   const onClickSave = (pizza) => {
     var newPizza = {
-      name: "Pizza Personalizada",
+      name: "Pizza Personalizadaa",
       id: new Date(),
       quantity: 1,
       amount: (pizza.length > 3
