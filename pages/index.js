@@ -49,7 +49,7 @@ export default function Home() {
               height: "61px",
             }}
           >
-            CONSTRUYE TU PIZZA!
+            CONSTRUYE TU PIZZA!!!
           </Button>
         </Stack>
         <Stack width={160} sx={{ gridArea: "1 / 5 / 6 / 6" }}>
