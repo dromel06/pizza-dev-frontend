@@ -22,5 +22,5 @@ jobs:
         with:
           args: suite execute ${{ secrets.GI_SUITE }} \
             --apiKey ${{ secrets.GI_API_KEY }} \
-            --startUrl ${{ https://dromelpizzadev.netlify.app }} \
+            --startUrl ${{ secrets.URL }} \
             --errorOnFail
