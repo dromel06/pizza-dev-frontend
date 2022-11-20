@@ -8,11 +8,19 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: node:12-alpine
     steps:
-      - name: execute Ghost Inspector test
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: 'dromelpizzadev'
+          max_timeout: 120
+      - name: execute Ghost Inspector suite
         uses: docker://ghostinspector/cli
         with:
-          args: test execute ${{ secrets.GI_TEST }} \
+          args: suite execute ${{ secrets.GI_SUITE }} \
             --apiKey ${{ secrets.GI_API_KEY }} \
-            --startUrl https://dromelpizzadev.netlify.app/ \
+            --startUrl ${{ steps.netlify.outputs.url }} \
             --errorOnFail
